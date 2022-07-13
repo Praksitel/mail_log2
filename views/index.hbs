@@ -1,0 +1,34 @@
+<div id="page">
+
+    <div id="content">
+        <h3>Поиск в логах почты</h3>
+
+        {{#if result }}
+            <p><b>Результат {{ result }}</b></p>
+        {{/if }}
+        {{#if readStrings }}
+            <p><b>Прочитано строк: {{ readStrings }}</b></p>
+        {{/if }}
+        {{#if dbhConnect }}
+            <p><b>Соединение с БД установлено</b></p>
+        {{/if }}
+
+    </div>
+    <div id="sidebar">
+        <ul id="sidebar-items">
+            <li>
+                <h3>Меню</h3>
+                <ul class="links">
+
+                    <li><a href="http://localhost/">Главная</a></li>
+                    <li><a href="http://localhost/parseLog">Загрузить и распарсить файл</a></li>
+                    <li><a href="http://localhost/showFile">Показать файл</a></li>
+                    <li><a href="http://localhost/initDB">Проинициализировать БД</a></li>
+                    <li><a href="http://localhost/logToDB">Загрузить лог в БД</a></li>
+                    <li><a href="http://localhost/showDB">Посмотреть лог в БД</a></li>
+                    <li><a href="http://localhost/search">Поиск в логе</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

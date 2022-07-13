@@ -1,0 +1,72 @@
+<div id="page">
+
+    <div id="content">
+        {{#if result }}
+            <p><b>Результат {{ result }}</b></p>
+        {{/if }}
+        {{#if readStrings }}
+            <p><b>Прочитано строк: {{ readStrings }}</b></p>
+        {{/if }}
+        {{#if dbhConnect }}
+            <p><b>Соединение с БД установлено</b></p>
+        {{/if }}
+
+        {{#if message}}
+            <h1>Message</h1>
+            <table>
+                <tr>
+                    <th>created</th>
+                    <th>id</th>
+                    <th>int_id</th>
+                    <th>str</th>
+                    <th>status</th>
+                </tr>
+                {{#each message}}
+                    <tr>
+                        <td>{{created}}</td>
+                        <td>{{id}}</td>
+                        <td>{{int_id}}</td>
+                        <td>{{str}}</td>
+                        <td>{{status}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if }}
+        {{#if log}}
+            <h1>Log</h1>
+            <table>
+                <tr>
+                    <th>created</th>
+                    <th>int_id</th>
+                    <th>str</th>
+                    <th>address</th>
+                </tr>
+                {{#each log}}
+                    <tr>
+                        <td>{{created}}</td>
+                        <td>{{int_id}}</td>
+                        <td>{{str}}</td>
+                        <td>{{address}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if }}
+    </div>
+    <div id="sidebar">
+        <ul id="sidebar-items">
+            <li>
+                <h3>Меню</h3>
+                <ul class="links">
+
+                    <li><a href="http://localhost/">Главная</a></li>
+                    <li><a href="http://localhost/parseLog">Загрузить и распарсить файл</a></li>
+                    <li><a href="http://localhost/showFile">Показать файл</a></li>
+                    <li><a href="http://localhost/initDB">Проинициализировать БД</a></li>
+                    <li><a href="http://localhost/logToDB">Загрузить лог в БД</a></li>
+                    <li><a href="http://localhost/showDB">Посмотреть лог в БД</a></li>
+                    <li><a href="http://localhost/search">Поиск в логе</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

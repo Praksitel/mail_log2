@@ -1,0 +1,46 @@
+<div id="page">
+
+    <div id="content">
+        {{#if result }}
+            <p><b>{{ result }}</b></p>
+        {{/if }}
+
+        {{#if parsedLog}}
+            <table>
+                <tr>
+                    <th>datetime</th>
+                    <th>internalId</th>
+                    <th>parsedFlag</th>
+                    <th>address</th>
+                    <th>info</th>
+                </tr>
+                {{#each parsedLog}}
+                    <tr>
+                        <td>{{datetime}}</td>
+                        <td>{{internalId}}</td>
+                        <td>{{parsedFlag}}</td>
+                        <td>{{address}}</td>
+                        <td>{{info}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if }}
+    </div>
+    <div id="sidebar">
+        <ul id="sidebar-items">
+            <li>
+                <h3>Меню</h3>
+                <ul class="links">
+
+                    <li><a href="http://localhost/">Главная</a></li>
+                    <li><a href="http://localhost/parseLog">Загрузить и распарсить файл</a></li>
+                    <li><a href="http://localhost/showFile">Показать файл</a></li>
+                    <li><a href="http://localhost/initDB">Проинициализировать БД</a></li>
+                    <li><a href="http://localhost/logToDB">Загрузить лог в БД</a></li>
+                    <li><a href="http://localhost/showDB">Посмотреть лог в БД</a></li>
+                    <li><a href="http://localhost/search">Поиск в логе</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

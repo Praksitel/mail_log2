@@ -1,0 +1,1 @@
+CREATE DATABASE mail_log WITH OWNER mail_log ENCODING='utf-8';

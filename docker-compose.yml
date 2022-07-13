@@ -1,0 +1,43 @@
+version: '2'
+services:
+  start_dependencies:
+    image: dadarek/wait-for-dependencies
+    networks:
+      - gpb
+    depends_on:
+      - mail_log_db
+      - mail_log
+    command:
+      - mail_log_db:5432
+      - mail_log:5000
+  mail_log:
+    image: mail_log
+    build: .
+    working_dir: /app
+    networks:
+      - gpb
+    environment:
+      LANG: ru_RU.UTF-8
+      LC_CTYPE: ru_RU.UTF-8
+      LC_ALL: ru_RU.UTF-8
+      LANGUAGE: ru_RU.UTF-8
+    depends_on:
+      - mail_log_db
+    restart: "always"
+    ports:
+      - "80:5000"
+  mail_log_db:
+    image: postgres:14
+    networks:
+      - gpb
+    restart: "always"
+    environment:
+      TZ: 'Europe/Moscow'
+      PGTZ: 'Europe/Moscow'
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
+      POSTGRES_PASSWORD: mail_log
+      POSTGRES_USER: mail_log
+    ports:
+      - "5432:5432"
+networks:
+  gpb:
