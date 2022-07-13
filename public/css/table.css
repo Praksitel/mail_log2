@@ -20,7 +20,7 @@ th {
 }
 
 td {
-    text-align: center;
+    text-align: left;
 }
 
 tr:nth-child(even) td {
